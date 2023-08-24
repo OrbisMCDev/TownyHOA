@@ -1,1 +1,9 @@
-# Coming Soon
+name: TownyHOA
+version: ${project.version}
+api-version: ${project.bukkitAPIVersion}
+main: xyz.orbismc.TownyHOA.TownyHOA
+description: A build rules/management addon for Towny!
+author: Imperial_Sam
+load: STARTUP
+prefix: [TownyHOA]
+depend: [Vault, Towny]

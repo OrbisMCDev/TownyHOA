@@ -1,2 +1,2 @@
 # TownyHOA
-An build rules/management addon for Towny!
+A build rules/management addon for Towny!

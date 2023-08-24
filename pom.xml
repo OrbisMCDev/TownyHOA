@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>TownyHOA</name>
-    <description>A build rule/management addon plugin for Towny!</description>
+    <description>A build rules/management addon for Towny!</description>
     <url>https://OrbisMC.xyz/</url>
 	
     <properties>
@@ -64,9 +64,22 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+
+        <repository>
+            <id>glaremasters repo</id>
+            <url>https://repo.glaremasters.me/repository/towny/</url>
+        </repository>
     </repositories>
 
+
     <dependencies>
+        <dependency>
+            <groupId>com.palmergames.bukkit.towny</groupId>
+            <artifactId>towny</artifactId>
+            <version>0.99.5.0</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>

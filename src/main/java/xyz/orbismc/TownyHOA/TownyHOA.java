@@ -17,6 +17,7 @@ public class TownyHOA extends JavaPlugin {
 
     public void onEnable() {
         System.out.println(ANSI_GREEN + "TownyHOA has been enabled!" + ANSI_RESET)
+        saveResource("config.yml", false);
         
     }
 }
