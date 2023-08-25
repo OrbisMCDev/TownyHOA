@@ -9,11 +9,11 @@
 #    )_(   (_______)(_______)|/    )_)   \_/   |/     \|(_______)|/     \| #
 ############################################################################                                                                        
 
-Development:
+development:
 
-  Information:
+  information:
     # DO NOT MODIFY ANY OF THIS
     version: 0.1.0
 
-Important:
-  is-enabled: true
+important:
+  is-disabled: false
