@@ -20,7 +20,7 @@ public class TownyHOA extends JavaPlugin {
         HOAConfig.getInstance().load();
         if config.getBoolean("important.is-disabled")
             public void onDisable() {
-                System.out.println(ANSI_RED + "TownyHOA is not enabled" + ANSI_RESET)
+                System.out.println(ANSI_RED + "TownyHOA is disabled in your config!" + ANSI_RESET)
             }
         
     }
