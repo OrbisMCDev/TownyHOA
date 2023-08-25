@@ -36,7 +36,7 @@ public class TownyHOA extends JavaPlugin {
         } else {
             System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET)
             System.out.println(ANSI_GREEN + VERSION + "has been enabled!" + ANSI_RESET)
-            if(StringUtils.isNotBlank(config.getString("important.launch-message"))){
+            if(StringUtils.isNotBlank(config.getString("important.launch-message"))) {
                 System.out.println(config.getString("important.launch-message") + ANSI_RESET)
             
             } else {
