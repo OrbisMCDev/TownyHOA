@@ -1,7 +1,6 @@
 package xyz.orbismc.TownyHOA;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang3.StringUtils;
 
 /* 
