@@ -16,4 +16,5 @@ development:
     version: 0.1.0
 
 important:
-  is-disabled: false
+  is-disabled: false # Setting this to true will stop TownyHOA from enabling itself on server start.
+  launch-message: # This will send a message in console on server start.

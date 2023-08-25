@@ -6,7 +6,7 @@ import java.io.file;
 
 public class HOAConfig {
 
-    private final static HOAConfig instance = new HOAConfig();
+    private final static HOAConfig instance = new HOAConfig(); // Initiate the config
 
     private File file;
     private YamlConfiguration config;
@@ -15,17 +15,17 @@ public class HOAConfig {
     }
 
     public void load() {
-        file = new File(TownyHOA.getInstance().getDataFolder(), "config.yml");
+        file = new File(TownyHOA.getInstance().getDataFolder(), "config.yml"); // Load the config file
 
         if (!file.exists())
-            TownyHOA.getInstance().saveResource(resourcepath: "settings.yml", replace: false);
+            TownyHOA.getInstance().saveResource(resourcepath: "config.yml", replace: false); // Save the config file
     }
 
         config = new YamlConfiguration();
-        config.options().parseCommments(value:true);
+        config.options().parseCommments(value:true); // Handle some config settings
 
         try {
-            config.load(file);
+            config.load(file); // Test that the config can be loaded
 
         } catch (Exception ex) {
             e.printStackTrace();
