@@ -26,8 +26,7 @@ public class TownyHOA extends JavaPlugin {
 
 
     private void enablePlugin() {
-        System.out.println(ANSI_WHITE + "=============================================================="
-            + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
         System.out.println(ANSI_GREEN + VERSION + " has been enabled!" + ANSI_RESET);
         
         String launchMessage = HOAConfig.getInstance().getConfig().getString("important.launch-message");
@@ -37,16 +36,14 @@ public class TownyHOA extends JavaPlugin {
             System.out.println("You can set a custom launch-message in your config files!");
         }
 
-        System.out.println(ANSI_WHITE + "=============================================================="
-            + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
     }
 
     private void pluginFail() {
-        System.out.println(ANSI_WHITE + "=============================================================="
-            + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
         System.out.println(ANSI_RED + VERSION + " is disabled in your config!" + ANSI_RESET);
-        System.out.println(ANSI_WHITE + "=============================================================="
-            + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
+        onDisable()
     }
 
     private void disablePlugin() {
