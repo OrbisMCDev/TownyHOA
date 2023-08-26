@@ -24,31 +24,49 @@ public class TownyHOA extends JavaPlugin {
     public static final String ANSI_WHITE = "\u001B[37m";
     public static final String VERSION = "TownyHOA v0.1.0";
 
+
+    private void enablePlugin() {
+        System.out.println(ANSI_WHITE + "=============================================================="
+            + ANSI_RESET);
+        System.out.println(ANSI_GREEN + VERSION + " has been enabled!" + ANSI_RESET);
+        
+        String launchMessage = HOAConfig.getInstance().getConfig().getString("important.launch-message");
+        if (StringUtils.isNotBlank(launchMessage)) {
+            System.out.println(launchMessage + ANSI_RESET);
+        } else {
+            System.out.println("You can set a custom launch-message in your config files!");
+        }
+
+        System.out.println(ANSI_WHITE + "=============================================================="
+            + ANSI_RESET);
+    }
+
+    private void pluginFail() {
+        System.out.println(ANSI_WHITE + "=============================================================="
+            + ANSI_RESET);
+        System.out.println(ANSI_RED + VERSION + " is disabled in your config!" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "=============================================================="
+            + ANSI_RESET);
+    }
+
+    private void disablePlugin() {
+        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
+        System.out.println(ANSI_CYAN + VERSION + "has been disabled!" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
+    }
+
     public void onEnable() { // Our main startup code
         HOAConfig.getInstance().load(); // Load the config
         if config.getBoolean("important.is-disabled") { // Check if the plugin is enabled
-            public void onDisable() { // Disable the plugin if it is not enabled.
-                System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET)
-                System.out.println(ANSI_RED + VERSION + "is disabled in your config!" + ANSI_RESET)
-                System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET)
-            }
+            pluginFail(); // Disable the plugin if it is not enabled
+
         } else {
-            System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET)
-            System.out.println(ANSI_GREEN + VERSION + "has been enabled!" + ANSI_RESET)
-            if(StringUtils.isNotBlank(config.getString("important.launch-message"))) {
-                System.out.println(config.getString("important.launch-message") + ANSI_RESET)
-            
-            } else {
-                System.out.println("You can set a custom launch-message in your config files!")
-            }
-            System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET)
+            enablePlugin();
         }
         
     }
 
     public void onDisable() { // Disable the plugin
-        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET)
-        System.out.println(ANSI_CYAN + VERSION + "has been disabled!" + ANSI_RESET)
-        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET)
+       disablePlugin();
     }
 }
