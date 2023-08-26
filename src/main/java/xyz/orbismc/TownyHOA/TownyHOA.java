@@ -1,6 +1,12 @@
 package xyz.orbismc.TownyHOA;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+
 import org.apache.commons.lang3.StringUtils;
 
 /* 
@@ -29,19 +35,13 @@ public class TownyHOA extends JavaPlugin {
         System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
         System.out.println(ANSI_RED + VERSION + " is disabled in your config!" + ANSI_RESET);
         System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
-        onDisable()
-        try {
-        Thread.sleep(5000); // 5000 milliseconds = 5 seconds
-        System.out.println("");
-        } catch (InterruptedException e) {
-            System.out.println("");
-            Thread.currentThread().interrupt();
-        }
+        Bukkit.getPluginManager().disablePlugin(this);
     }
 
+    @Override
     public void onEnable() { // Our main startup code
         HOAConfig.getInstance().load(); // Load the config
-        if config.getBoolean("important.is-disabled") { // Check if the plugin is enabled
+        if (HOAConfig.getInstance().getConfig().getBoolean("important.is-disabled")) { // Check if the plugin is enabled
             pluginFail(); // Disable the plugin if it is not enabled
 
         } else {
@@ -59,14 +59,8 @@ public class TownyHOA extends JavaPlugin {
     }
         }
 
+    @Override
     public void onDisable() { // Disable the plugin
-        try {
-        Thread.sleep(5000); // 5000 milliseconds = 5 seconds
-        System.out.println("");
-        } catch (InterruptedException e) {
-            System.out.println("");
-            Thread.currentThread().interrupt();
-        }
         System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
         System.out.println(ANSI_CYAN + VERSION + "has been disabled!" + ANSI_RESET);
         System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);

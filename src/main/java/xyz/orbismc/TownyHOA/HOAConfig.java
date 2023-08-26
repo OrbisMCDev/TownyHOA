@@ -2,7 +2,7 @@ package xyz.orbismc.TownyHOA;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import java.io.file;
+import java.io.File;
 
 public class HOAConfig {
 
@@ -15,23 +15,22 @@ public class HOAConfig {
     }
 
     public void load() {
-        file = new File(TownyHOA.getInstance().getDataFolder(), "config.yml"); // Load the config file
+    file = new File(TownyHOA.getInstance().getDataFolder(), "config.yml"); // Load the config file
 
-        if (!file.exists())
-            TownyHOA.getInstance().saveResource(resourcepath: "config.yml", replace: false); // Save the config file
+    if (!file.exists())
+        TownyHOA.getInstance().saveResource("config.yml", false); // Save the config file
+
+    config = new YamlConfiguration();
+    config.options().parseComments(true); // Handle some config settings
+
+    try {
+        config.load(file); // Test that the config can be loaded
+
+    } catch (Exception ex) {
+        ex.printStackTrace();
     }
-
-        config = new YamlConfiguration();
-        config.options().parseCommments(value:true); // Handle some config settings
-
-        try {
-            config.load(file); // Test that the config can be loaded
-
-        } catch (Exception ex) {
-            e.printStackTrace();
-        }
-    
-
+}
+   
     public static HOAConfig getInstance() {
         return instance;
     }
