@@ -22,7 +22,7 @@ public class TownyHOA extends JavaPlugin {
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
-    public static final String VERSION = "TownyHOA v0.1.0"
+    public static final String VERSION = "TownyHOA v0.1.0";
 
     public void onEnable() { // Our main startup code
         HOAConfig.getInstance().load(); // Load the config
