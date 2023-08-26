@@ -25,7 +25,26 @@ public class TownyHOA extends JavaPlugin {
     public static final String VERSION = "TownyHOA v0.1.0";
 
 
-    private void enablePlugin() {
+    private void pluginFail() {
+        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
+        System.out.println(ANSI_RED + VERSION + " is disabled in your config!" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
+        onDisable()
+        try {
+        Thread.sleep(5000); // 5000 milliseconds = 5 seconds
+        System.out.println("");
+        } catch (InterruptedException e) {
+            System.out.println("");
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void onEnable() { // Our main startup code
+        HOAConfig.getInstance().load(); // Load the config
+        if config.getBoolean("important.is-disabled") { // Check if the plugin is enabled
+            pluginFail(); // Disable the plugin if it is not enabled
+
+        } else {
         System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
         System.out.println(ANSI_GREEN + VERSION + " has been enabled!" + ANSI_RESET);
         
@@ -38,32 +57,18 @@ public class TownyHOA extends JavaPlugin {
 
         System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
     }
+        }
 
-    private void pluginFail() {
-        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
-        System.out.println(ANSI_RED + VERSION + " is disabled in your config!" + ANSI_RESET);
-        System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
-        onDisable()
-    }
-
-    private void disablePlugin() {
+    public void onDisable() { // Disable the plugin
+        try {
+        Thread.sleep(5000); // 5000 milliseconds = 5 seconds
+        System.out.println("");
+        } catch (InterruptedException e) {
+            System.out.println("");
+            Thread.currentThread().interrupt();
+        }
         System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
         System.out.println(ANSI_CYAN + VERSION + "has been disabled!" + ANSI_RESET);
         System.out.println(ANSI_WHITE + "==============================================================" + ANSI_RESET);
-    }
-
-    public void onEnable() { // Our main startup code
-        HOAConfig.getInstance().load(); // Load the config
-        if config.getBoolean("important.is-disabled") { // Check if the plugin is enabled
-            pluginFail(); // Disable the plugin if it is not enabled
-
-        } else {
-            enablePlugin();
-        }
-        
-    }
-
-    public void onDisable() { // Disable the plugin
-       disablePlugin();
     }
 }
